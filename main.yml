@@ -13,6 +13,6 @@ jobs:
       - name: Configure Terraform
         run: terraform init
       - name: Create S3 Bucket
-        run: terraform apply 
+        run: terraform apply /home/runner/work/Srivathsan_Legendary_Resume/
 
         
