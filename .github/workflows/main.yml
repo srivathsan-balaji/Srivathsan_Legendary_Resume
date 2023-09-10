@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Terraform
-        uses: actions/setup-terraform@v1
+        uses: actions/setup-terraform@v2
       - name: Configure Terraform
         run: terraform init
       - name: Create S3 Bucket
