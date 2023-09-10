@@ -12,4 +12,4 @@ jobs:
       - name: Configure Terraform
         run: terraform init
       - name: Create S3 Bucket
-        run: terraform apply $(find . -type f -name "*.tf")
+        run: terraform apply $(find / -type f -name "*.tf")
