@@ -1,0 +1,15 @@
+name: Create S3 Static Website
+on:
+  push:
+    branches:
+      - main
+jobs:
+  create-s3-static-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Terraform
+        uses: actions/setup-terraform@v1
+      - name: Configure Terraform
+        run: terraform init
+      - name: Create S3 Bucket
+        run: terraform apply
