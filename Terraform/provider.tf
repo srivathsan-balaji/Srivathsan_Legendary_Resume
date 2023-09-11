@@ -11,4 +11,3 @@ provider "aws" {
   # Configuration options
   region = var.region #region for the S3 bucket
   }
-}
