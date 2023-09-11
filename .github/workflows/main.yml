@@ -13,20 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - uses: actions/checkout@master
-      - uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
+      - name: Configure AWS CLI
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
-
-      - name: Debug AWS CLI Configuration
         run: |
-          echo "AWS Access Key ID: $AWS_ACCESS_KEY_ID"
-          echo "AWS Secret Access Key: $AWS_SECRET_ACCESS_KEY"
-          aws configure list
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+
+      - name: Run AWS CLI Command
+        run: |
+          # Example: List S3 buckets
+          aws s3 ls
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
