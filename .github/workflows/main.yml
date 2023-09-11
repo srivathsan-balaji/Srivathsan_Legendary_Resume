@@ -20,6 +20,12 @@ jobs:
           #unzip awscliv2.zip
           #sudo ./aws/install
           aws --version
+        
+      - name: Debug AWS CLI Configuration
+        run: |
+          echo "AWS Access Key ID: $AWS_ACCESS_KEY_ID"
+          echo "AWS Secret Access Key: $AWS_SECRET_ACCESS_KEY"
+          aws configure list
 
       - name: Configure AWS CLI
         env:
