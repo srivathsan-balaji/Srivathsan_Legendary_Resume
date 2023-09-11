@@ -1,4 +1,4 @@
-name: Terraform Deployment
+name: Upload Website
 
 on:
   push:
