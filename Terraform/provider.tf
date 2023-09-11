@@ -9,5 +9,6 @@ terraform {
 
 provider "aws" {
   # Configuration options
-  region = "us-east-1"
+  region = var.region #region for the S3 bucket
+  }
 }
